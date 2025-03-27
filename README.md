@@ -1,33 +1,36 @@
-## Description:
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-When using nested dynamic routes like `/produtos/categorias/[id],` the page renders the content of the home page (/home) instead of the expected component, even though the URL updates correctly to `/produtos/categorias/1,` for example.
+## Getting Started
 
-### Steps to reproduce:
+First, run the development server:
 
-1. Create a Next.js project with version 14.2.
-2. Set up a nested route structure, for example: 
-        `app/produtos/categorias/[id]/page.tsx`
-3. Add a simple component in `[id]/page.tsx,` like:
-
-
-```
-export default function CategoryEdit({ params }) {
-  return <h1>Editing category {params.id}</h1>;
-}
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-4. Navigate to /produtos/categorias/1 in the browser.
-5. Notice that instead of seeing "Editing category 1", the home page content is rendered, even though the URL shows `/produtos/categorias/1.`
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Expected behavior:
-The page should render the component defined in `[id]/page.tsx` for the given ID, showing "Editing category 1" when accessing `/produtos/categorias/1.`
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### Actual behavior:
-The page renders the home page content, despite the URL being correct.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### Additional context:
+## Learn More
 
-- When I move the categorias folder out of produtos, making it `app/categorias/[id]/page.tsx,` and access `/categorias/1,` the component renders correctly.
-- This suggests the issue is specifically tied to nesting dynamic routes inside another folder like produtos.
-- No errors appear in the browser console or terminal.
-- Other nested routes like `/funcoes/[id]` work fine as long as they’re not inside another folder.
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
